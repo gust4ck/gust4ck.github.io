@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Configura AdSense global
   (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-XXXXXXXXXXXXXXXX",
+    google_ad_client: "ca-pub-5476969319933047",
     enable_page_level_ads: true
   });
 });
