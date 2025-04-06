@@ -13,7 +13,12 @@ class FocusCounter {
     this.initEvents();
     this.loadSettings();
     this.updateDisplay();
-    this.showAdPopup();
+
+    // Mostra o anúncio apenas se for a primeira visita ou recarregamento
+    if (!sessionStorage.getItem('adShown')) {
+      this.showAdPopup();
+      sessionStorage.setItem('adShown', 'true');
+    }
   }
 
   initElements() {
