@@ -1,1 +1,61 @@
-hi!
+<!DOCTYPE html>
+<html lang="auto">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusCounter</title>
+  <meta name="description" content="Minimalist infinite counter">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+    crossorigin="anonymous"></script>
+  <script src="lang/translations.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="theme-toggle" id="themeToggle">
+    <span class="material-icons" id="themeIcon">dark_mode</span>
+  </div>
+
+  <div class="timer-container">
+    <div class="timer-display" id="timerDisplay">
+      <span id="hoursDisplay">00</span>:<span id="minutesDisplay">00</span>:<span id="secondsDisplay">00</span>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="startBtn">
+        <span class="material-icons icon">play_arrow</span>
+      </button>
+      <button class="btn" id="stopBtn" disabled>
+        <span class="material-icons icon">pause</span>
+      </button>
+      <button class="btn" id="resetBtn">
+        <span class="material-icons icon">replay</span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="footer-nav">
+    <a href="pages/about.html" data-i18n="aboutTitle">About</a>
+    <a href="pages/privacy.html" data-i18n="privacyTitle">Privacy</a>
+    <a href="pages/terms.html" data-i18n="termsTitle">Terms</a>
+  </nav>
+
+  <footer data-i18n="footer">FOCUSCOUNTER</footer>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="ad-popup" id="adPopup">
+    <p class="ad-message" data-i18n="adMessage1"></p>
+    <p class="ad-message" data-i18n="adMessage2"></p>
+    <p><span data-i18n="adCountdownText"></span>: <span class="countdown" id="countdown">30</span></p>
+    <div class="ad-container">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+</body>
+
+</html>
