@@ -5,6 +5,11 @@ class FocusCounter {
     this.isRunning = false;
     this.adCountdown = 30;
     this.adInterval = null;
+    this.fonts = [
+      'Roboto Mono', 'Inter', 'Space Grotesk',
+      'Courier New', 'Arial', 'Verdana',
+      'Georgia', 'Times New Roman', 'Helvetica'
+    ];
 
     this.translator = new Translator();
     this.translator.applyTranslations();
@@ -13,8 +18,8 @@ class FocusCounter {
     this.initEvents();
     this.loadSettings();
     this.updateDisplay();
+    this.loadGoogleFonts();
 
-    // Mostra o anúncio apenas se for a primeira visita ou recarregamento
     if (!sessionStorage.getItem('adShown')) {
       this.showAdPopup();
       sessionStorage.setItem('adShown', 'true');
@@ -37,6 +42,19 @@ class FocusCounter {
     this.adPopup = document.getElementById('adPopup');
     this.overlay = document.getElementById('overlay');
     this.countdownDisplay = document.getElementById('countdown');
+
+    this.settingsToggle = document.getElementById('settingsToggle');
+    this.settingsMenu = document.getElementById('settingsMenu');
+    this.fontSearch = document.getElementById('fontSearch');
+    this.fontOptions = document.getElementById('fontOptions');
+
+    this.decreaseBtnSize = document.getElementById('decreaseBtnSize');
+    this.resetBtnSize = document.getElementById('resetBtnSize');
+    this.increaseBtnSize = document.getElementById('increaseBtnSize');
+
+    this.decreaseTimerSize = document.getElementById('decreaseTimerSize');
+    this.resetTimerSize = document.getElementById('resetTimerSize');
+    this.increaseTimerSize = document.getElementById('increaseTimerSize');
   }
 
   initEvents() {
@@ -44,6 +62,16 @@ class FocusCounter {
     this.stopBtn.addEventListener('click', () => this.stop());
     this.resetBtn.addEventListener('click', () => this.reset());
     this.themeToggle.addEventListener('click', () => this.toggleTheme());
+    this.settingsToggle.addEventListener('click', () => this.toggleSettingsMenu());
+    this.fontSearch.addEventListener('input', () => this.filterFonts());
+
+    this.decreaseBtnSize.addEventListener('click', () => this.adjustButtonSize(-5));
+    this.resetBtnSize.addEventListener('click', () => this.resetButtonSize());
+    this.increaseBtnSize.addEventListener('click', () => this.adjustButtonSize(5));
+
+    this.decreaseTimerSize.addEventListener('click', () => this.adjustTimerSize(-5));
+    this.resetTimerSize.addEventListener('click', () => this.resetTimerSize());
+    this.increaseTimerSize.addEventListener('click', () => this.adjustTimerSize(5));
 
     document.addEventListener('keydown', (e) => {
       if (e.code === 'Space') {
@@ -56,6 +84,134 @@ class FocusCounter {
     });
   }
 
+  toggleSettingsMenu() {
+    this.settingsMenu.classList.toggle('active');
+  }
+
+  loadGoogleFonts() {
+    fetch('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDxHyUYHtwpYx1XPB7lzZ3bJ5KjGJwz1Yw')
+      .then(response => response.json())
+      .then(data => {
+        this.fonts = data.items.map(font => font.family);
+        this.renderFontOptions();
+      })
+      .catch(() => {
+        this.renderFontOptions();
+      });
+  }
+
+  renderFontOptions() {
+    this.fontOptions.innerHTML = '';
+    this.fonts.forEach(font => {
+      const option = document.createElement('div');
+      option.className = 'font-option';
+      option.textContent = font;
+      option.style.fontFamily = font;
+
+      const checkIcon = document.createElement('span');
+      checkIcon.className = 'material-icons';
+      checkIcon.textContent = 'check';
+
+      option.appendChild(checkIcon);
+      option.addEventListener('click', () => this.selectFont(font));
+
+      this.fontOptions.appendChild(option);
+    });
+  }
+
+  filterFonts() {
+    const searchTerm = this.fontSearch.value.toLowerCase();
+    const options = this.fontOptions.querySelectorAll('.font-option');
+
+    options.forEach(option => {
+      const fontName = option.textContent.replace('check', '').toLowerCase();
+      option.style.display = fontName.includes(searchTerm) ? 'flex' : 'none';
+    });
+  }
+
+  selectFont(font) {
+    const options = this.fontOptions.querySelectorAll('.font-option');
+    options.forEach(opt => opt.classList.remove('active'));
+
+    const selectedOption = [...options].find(opt => opt.textContent.includes(font));
+    if (selectedOption) selectedOption.classList.add('active');
+
+    document.querySelector('.timer-display').style.fontFamily = font;
+    localStorage.setItem('fc_timer_font', font);
+  }
+
+  adjustButtonSize(change) {
+    const buttons = document.querySelectorAll('.btn');
+    const currentSize = parseFloat(getComputedStyle(buttons[0]).width);
+    const newSize = Math.max(40, Math.min(80, currentSize + change));
+
+    buttons.forEach(btn => {
+      btn.style.width = `${newSize}px`;
+      btn.style.height = `${newSize}px`;
+    });
+
+    localStorage.setItem('fc_button_size', newSize);
+  }
+
+  resetButtonSize() {
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+      btn.style.width = '';
+      btn.style.height = '';
+    });
+
+    localStorage.removeItem('fc_button_size');
+  }
+
+  adjustTimerSize(change) {
+    const timerDisplay = document.querySelector('.timer-display');
+    const currentSize = parseFloat(getComputedStyle(timerDisplay).fontSize);
+    const newSize = Math.max(40, Math.min(160, currentSize + change));
+
+    timerDisplay.style.fontSize = `${newSize}px`;
+    localStorage.setItem('fc_timer_size', newSize);
+  }
+
+  resetTimerSize() {
+    const timerDisplay = document.querySelector('.timer-display');
+    timerDisplay.style.fontSize = '';
+    localStorage.removeItem('fc_timer_size');
+  }
+
+  loadSettings() {
+    const savedTheme = localStorage.getItem('fc_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    this.themeIcon.textContent = savedTheme === 'dark' ? 'dark_mode' : 'light_mode';
+
+    const savedFont = localStorage.getItem('fc_timer_font');
+    if (savedFont) {
+      document.querySelector('.timer-display').style.fontFamily = savedFont;
+
+      setTimeout(() => {
+        const options = this.fontOptions.querySelectorAll('.font-option');
+        options.forEach(opt => {
+          if (opt.textContent.includes(savedFont)) {
+            opt.classList.add('active');
+          }
+        });
+      }, 500);
+    }
+
+    const savedBtnSize = localStorage.getItem('fc_button_size');
+    if (savedBtnSize) {
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(btn => {
+        btn.style.width = `${savedBtnSize}px`;
+        btn.style.height = `${savedBtnSize}px`;
+      });
+    }
+
+    const savedTimerSize = localStorage.getItem('fc_timer_size');
+    if (savedTimerSize) {
+      document.querySelector('.timer-display').style.fontSize = `${savedTimerSize}px`;
+    }
+  }
+
   showAdPopup() {
     this.adPopup.style.display = 'block';
     this.overlay.style.display = 'block';
@@ -66,7 +222,7 @@ class FocusCounter {
   }
 
   startAdCountdown() {
-    this.adCountdown = 20;
+    this.adCountdown = 2;
     this.updateAdCountdown();
 
     if (this.adInterval) clearInterval(this.adInterval);
@@ -144,18 +300,11 @@ class FocusCounter {
     this.themeIcon.textContent = newTheme === 'dark' ? 'dark_mode' : 'light_mode';
     localStorage.setItem('fc_theme', newTheme);
   }
-
-  loadSettings() {
-    const savedTheme = localStorage.getItem('fc_theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    this.themeIcon.textContent = savedTheme === 'dark' ? 'dark_mode' : 'light_mode';
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   new FocusCounter();
 
-  // Configura AdSense global
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-5476969319933047",
     enable_page_level_ads: true

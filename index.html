@@ -19,6 +19,52 @@
 </head>
 
 <body>
+  <div class="settings-toggle" id="settingsToggle">
+    <span class="material-icons">settings</span>
+  </div>
+
+  <div class="settings-menu" id="settingsMenu">
+    <div class="settings-section">
+      <h3>Font Family</h3>
+      <div class="font-selector">
+        <input type="text" id="fontSearch" placeholder="Search Google Fonts...">
+        <div class="font-options" id="fontOptions">
+          <!-- Font options will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Button Size</h3>
+      <div class="size-controls">
+        <button class="size-btn" id="decreaseBtnSize">
+          <span class="material-icons">remove</span>
+        </button>
+        <button class="size-btn" id="resetBtnSize">
+          <span class="material-icons">restart_alt</span>
+        </button>
+        <button class="size-btn" id="increaseBtnSize">
+          <span class="material-icons">add</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Timer Font Size</h3>
+      <div class="size-controls">
+        <button class="size-btn" id="decreaseTimerSize">
+          <span class="material-icons">remove</span>
+        </button>
+        <button class="size-btn" id="resetTimerSize">
+          <span class="material-icons">restart_alt</span>
+        </button>
+        <button class="size-btn" id="increaseTimerSize">
+          <span class="material-icons">add</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="theme-toggle" id="themeToggle">
     <span class="material-icons" id="themeIcon">dark_mode</span>
   </div>

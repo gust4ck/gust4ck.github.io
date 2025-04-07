@@ -20,10 +20,6 @@ const translations = {
     'aboutFeature3': 'Dark/light mode toggle',
     'aboutFeature4': 'Multi-language support (12 languages)',
     'aboutFeature5': 'Minimalist distraction-free design',
-    'aboutTechTitle': 'Technology',
-    'aboutTechContent': 'Built with pure HTML, CSS and JavaScript. No frameworks or unnecessary dependencies.',
-    'aboutOpenSource': 'Open source and available on GitHub',
-    'aboutVersion': 'Current version: 2.1.0',
 
     // Privacy Page
     'privacyTitle': 'Privacy Policy',
@@ -32,14 +28,6 @@ const translations = {
     'privacyData1': 'Theme preference (dark/light mode)',
     'privacyData2': 'Language selection',
     'privacyData3': 'Anonymous usage statistics',
-    'privacyCookiesTitle': 'Cookies',
-    'privacyCookiesContent': 'We use only strictly necessary cookies for functionality:',
-    'privacyCookie1': 'Theme preference storage',
-    'privacyCookie2': 'Session management',
-    'privacyThirdPartyTitle': 'Third-Party Services',
-    'privacyThirdPartyContent': 'We use Google AdSense for advertising, which has its own privacy policies.',
-    'privacyRightsTitle': 'Your Rights',
-    'privacyRightsContent': 'You have the right to request access or deletion of your personal data.',
 
     // Terms Page
     'termsTitle': 'Terms of Service',
@@ -48,22 +36,13 @@ const translations = {
     'termsUse1': 'For personal productivity purposes only',
     'termsUse2': 'No automated or bulk usage',
     'termsUse3': 'No reverse engineering or modification',
-    'termsLiabilitiesTitle': 'Liabilities',
-    'termsLiabilitiesContent': 'We are not responsible for any loss of productivity or data.',
-    'termsChangesTitle': 'Changes to Terms',
-    'termsChangesContent': 'We may update these terms periodically. Continued use constitutes acceptance.',
 
     // Contact Page
     'contactTitle': 'Contact Us',
     'contactIntro': 'Get in touch with us for partnerships, advertising or support:',
     'contactEmail': 'Advertising email:',
     'contactWhatsApp': 'Business WhatsApp:',
-    'contactHours': 'Response hours: Mon-Fri, 9AM-5PM',
-    'contactAdInfo': 'For advertising opportunities, include:',
-    'contactAdItem1': '- Company/brand name',
-    'contactAdItem2': '- Target audience details',
-    'contactAdItem3': '- Campaign duration',
-    'contactSupport': 'For support, check our FAQ first'
+    'contactHours': 'Response hours: Mon-Fri, 9AM-5PM'
   },
   'pt': {
     // Main UI
@@ -87,10 +66,6 @@ const translations = {
     'aboutFeature4': 'Suporte a múltiplos idiomas (12 idiomas)',
     'aboutFeature5': 'Design minimalista sem distrações',
     'aboutFeature6': 'Não deixamos anúncios de forma "bombardeada" no site, você verá somente 1 anúncio ao entrar no site ou recarregar a página, e adiante não verá mais nenhum anúncio. Um diferencial de todos os timers para o nosso da FocusCounter.',
-    'aboutTechTitle': 'Tecnologia',
-    'aboutTechContent': 'Desenvolvido com HTML, CSS e JavaScript puro. Sem frameworks ou dependências desnecessárias.',
-    'aboutOpenSource': 'Código aberto disponível no GitHub',
-    'aboutVersion': 'Versão atual: 2.1.0',
 
     // Privacy Page
     'privacyTitle': 'Política de Privacidade',
@@ -99,58 +74,21 @@ const translations = {
     'privacyData1': 'Preferência de tema (modo escuro/claro)',
     'privacyData2': 'Seleção de idioma',
     'privacyData3': 'Navegações sua na web passadas para um anúncio dedicado a você.',
-    'privacyCookiesTitle': 'Cookies',
-    'privacyCookiesContent': 'Usamos apenas cookies estritamente necessários para funcionalidade:',
-    'privacyCookie1': 'Armazenamento de preferência de tema',
-    'privacyCookie2': 'Gerenciamento de sessão',
-    'privacyThirdPartyTitle': 'Serviços de Terceiros',
-    'privacyThirdPartyContent1': 'Usamos Google AdSense para publicidade, que possui suas próprias políticas de privacidade.',
-    'privacyThirdPartyContent2': 'Adotamos as mesmas políticas de privacidade do Google Adsense para anúncios de empresas ou marcas tercerizadas interessadas em utilizar nosso programa de anúncios.',
-    'privacyRightsTitle': 'Seus Direitos',
-    'privacyRightsContent': 'Você tem direito de contatar-nos a qualquer dúvida.',
 
     // Terms Page
     'termsTitle': 'Termos de Serviço',
     'termsIntro': 'Bem-vindo ao FocusCounter! Estes termos visam uma experiência transparente e segura:',
-
     'termsUseTitle': 'Nosso Compromisso',
     'termsUse1': 'Foco total na sua produtividade: Utilizamos apenas cookies para armazenar sua preferência de tema do site (light/dark), e serviços de terceiros do Google Adsense. Não coletamos nenhum tipo de dados pessoais.',
     'termsUse2': 'Uso individual e humano: proibido automações ou redistribuição não autorizada.',
     'termsUse3': 'Integridade do serviço: não desmonte ou modifique o FocusCounter.',
-
-    'termsLiabilitiesTitle': 'Segurança e Transparência',
-    'termsLiabilitiesContent': 'Desenvolvemos o FocusCounter com privacidade em mente. Como não armazenamos dados, seu uso é livre de preocupações com vazamentos.',
-
-    'termsChangesTitle': 'Atualizações',
-    'termsChangesContent': 'Eventuais mudanças serão comunicadas com clareza. Se continuar usando, você as aceita.',
 
     // Contact Page
     'contactTitle': 'Contato',
     'contactIntro': 'Entre em contato para parcerias, publicidade ou suporte:',
     'contactEmail': 'E-mail comercial:',
     'contactWhatsApp': 'WhatsApp comercial:',
-    'contactHours': 'Horário de resposta: Domingo a Sabádo, 24h por dia.',
-    'contactAdInfo': 'Para propostas comerciais, inclua:',
-    'contactAdItem1': '- Nome da empresa/marca',
-    'contactAdItem2': '- Detalhes do público-alvo',
-    'contactAdItem3': '- Duração da campanha',
-    'contactSupport': 'Para suporte, consulte nosso FAQ primeiro',
-    // Help Page
-    'helpTitle': 'Help Center',
-    'helpIntro': 'Learn how to use FocusCounter effectively with these tips and tricks.',
-    'helpShortcutsTitle': 'Keyboard Shortcuts',
-    'shortcutSpace': 'Spacebar',
-    'shortcutSpaceDesc': 'Start/Pause the timer',
-    'shortcutEsc': 'Escape',
-    'shortcutEscDesc': 'Reset the timer to zero',
-    'shortcutT': 'T key',
-    'shortcutTDesc': 'Toggle between dark/light theme',
-    'helpThemesTitle': 'Theme Settings',
-    'helpThemesContent': 'Customize your visual experience with our theme options:',
-    'themeDark': 'Dark Mode',
-    'themeLight': 'Light Mode',
-    'helpFontsTitle': 'Font Customization',
-    'helpFontsContent': 'Change the font style and size for better readability:'
+    'contactHours': 'Horário de resposta: Domingo a Sabádo, 24h por dia.'
   }
 };
 

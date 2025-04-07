@@ -7,6 +7,8 @@
   --card: #1e1e1e;
   --nav-bg: rgb(0, 0, 0);
   --text-secondary: rgba(255, 255, 255, 0.7);
+  --button-size: 60px;
+  --timer-font-size: min(25vw, 140px);
 }
 
 [data-theme="light"] {
@@ -69,7 +71,7 @@ body {
 
 .timer-display {
   font-family: 'Roboto Mono', monospace;
-  font-size: min(25vw, 140px);
+  font-size: var(--timer-font-size);
   font-weight: 500;
   margin-bottom: 30px;
   font-variant-numeric: tabular-nums;
@@ -86,8 +88,8 @@ body {
 }
 
 .btn {
-  width: 60px;
-  height: 60px;
+  width: var(--button-size);
+  height: var(--button-size);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -117,6 +119,144 @@ body {
 
 .icon {
   font-size: 28px;
+}
+
+/* Settings Toggle */
+.settings-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  background: var(--card);
+  transition: all 0.2s ease;
+}
+
+.settings-toggle:active {
+  transform: scale(1.2);
+}
+
+.settings-toggle .material-icons {
+  font-size: 24px;
+  color: var(--primary);
+}
+
+/* Settings Menu */
+.settings-menu {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  width: 280px;
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.settings-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+}
+
+.settings-section h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.font-selector {
+  margin-bottom: 16px;
+}
+
+#fontSearch {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.font-options {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.font-option {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.font-option:hover {
+  background: rgba(128, 128, 128, 0.1);
+}
+
+.font-option.active {
+  background: var(--secondary);
+  color: #000;
+}
+
+.font-option .material-icons {
+  font-size: 18px;
+}
+
+.size-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.size-btn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.size-btn:active {
+  transform: scale(0.95);
+}
+
+.size-btn .material-icons {
+  font-size: 18px;
 }
 
 .theme-toggle {
