@@ -66,7 +66,7 @@ class FocusCounter {
   }
 
   startAdCountdown() {
-    this.adCountdown = 30;
+    this.adCountdown = 2;
     this.updateAdCountdown();
 
     if (this.adInterval) clearInterval(this.adInterval);

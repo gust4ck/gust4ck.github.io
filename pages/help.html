@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="auto">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="helpTitle">Help Center</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="styles/page.css">
+  <script src="../lang/translations.js" defer></script>
+  <script src="scripts/page.js" defer></script>
+</head>
+
+<body>
+  <div class="theme-toggle" id="themeToggle">
+    <span class="material-icons" id="themeIcon">dark_mode</span>
+  </div>
+
+  <div class="page-container">
+    <header class="page-header">
+      <h1><span class="material-icons">help_outline</span> <span data-i18n="helpTitle">Help Center</span></h1>
+    </header>
+
+    <main class="page-content">
+      <section>
+        <p data-i18n="helpIntro"></p>
+      </section>
+
+      <section>
+        <h2><span class="material-icons">keyboard</span> <span data-i18n="helpShortcutsTitle"></span></h2>
+        <ul class="feature-list">
+          <li><strong data-i18n="shortcutSpace"></strong> <span data-i18n="shortcutSpaceDesc"></span></li>
+          <li><strong data-i18n="shortcutEsc"></strong> <span data-i18n="shortcutEscDesc"></span></li>
+          <li><strong data-i18n="shortcutT"></strong> <span data-i18n="shortcutTDesc"></span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="material-icons">palette</span> <span data-i18n="helpThemesTitle"></span></h2>
+        <p data-i18n="helpThemesContent"></p>
+        <div class="theme-preview">
+          <div class="theme-option" data-theme="dark">
+            <div class="theme-sample dark-sample"></div>
+            <span data-i18n="themeDark"></span>
+          </div>
+          <div class="theme-option" data-theme="light">
+            <div class="theme-sample light-sample"></div>
+            <span data-i18n="themeLight"></span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="material-icons">text_fields</span> <span data-i18n="helpFontsTitle"></span></h2>
+        <p data-i18n="helpFontsContent"></p>
+        <div class="font-options">
+          <button class="font-btn" data-font="inter">Inter</button>
+          <button class="font-btn" data-font="roboto">Roboto Mono</button>
+          <button class="font-btn" data-font="space">Space Grotesk</button>
+        </div>
+        <div class="size-options">
+          <button class="size-btn" data-size="small">A-</button>
+          <button class="size-btn" data-size="medium">A</button>
+          <button class="size-btn" data-size="large">A+</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <a href="../" class="back-btn">
+        <span class="material-icons">arrow_back</span>
+        <span data-i18n="backButton">Back</span>
+      </a>
+    </footer>
+  </div>
+</body>
+
+</html>
