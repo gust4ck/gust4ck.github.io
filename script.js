@@ -53,7 +53,7 @@ class FocusCounter {
     this.increaseBtnSize = document.getElementById('increaseBtnSize');
 
     this.decreaseTimerSize = document.getElementById('decreaseTimerSize');
-    this.resetTimerSize = document.getElementById('resetTimerSize');
+    this.resetTimerSizeBtn = document.getElementById('resetTimerSize'); // Changed variable name here
     this.increaseTimerSize = document.getElementById('increaseTimerSize');
   }
 
@@ -70,7 +70,7 @@ class FocusCounter {
     this.increaseBtnSize.addEventListener('click', () => this.adjustButtonSize(5));
 
     this.decreaseTimerSize.addEventListener('click', () => this.adjustTimerSize(-5));
-    this.resetTimerSize.addEventListener('click', () => this.resetTimerSize());
+    this.resetTimerSizeBtn.addEventListener('click', () => this.resetTimerFontSize()); // Changed function name here
     this.increaseTimerSize.addEventListener('click', () => this.adjustTimerSize(5));
 
     document.addEventListener('keydown', (e) => {
@@ -86,6 +86,7 @@ class FocusCounter {
 
   toggleSettingsMenu() {
     this.settingsMenu.classList.toggle('active');
+    this.settingsMenu.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
   }
 
   loadGoogleFonts() {
@@ -172,7 +173,7 @@ class FocusCounter {
     localStorage.setItem('fc_timer_size', newSize);
   }
 
-  resetTimerSize() {
+  resetTimerFontSize() { // Renamed function to avoid conflict
     const timerDisplay = document.querySelector('.timer-display');
     timerDisplay.style.fontSize = '';
     localStorage.removeItem('fc_timer_size');
@@ -222,7 +223,7 @@ class FocusCounter {
   }
 
   startAdCountdown() {
-    this.adCountdown = 2;
+    this.adCountdown = 15;
     this.updateAdCountdown();
 
     if (this.adInterval) clearInterval(this.adInterval);
@@ -286,6 +287,12 @@ class FocusCounter {
     this.hoursDisplay.textContent = this.pad(hours);
     this.minutesDisplay.textContent = this.pad(mins);
     this.secondsDisplay.textContent = this.pad(secs);
+
+    // Add animation for timer update
+    this.timerDisplay.style.animation = 'pulse 0.2s ease';
+    setTimeout(() => {
+      this.timerDisplay.style.animation = '';
+    }, 200);
   }
 
   pad(num) {
@@ -299,6 +306,9 @@ class FocusCounter {
     document.documentElement.setAttribute('data-theme', newTheme);
     this.themeIcon.textContent = newTheme === 'dark' ? 'dark_mode' : 'light_mode';
     localStorage.setItem('fc_theme', newTheme);
+
+    // Add smooth transition for theme change
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
   }
 }
 

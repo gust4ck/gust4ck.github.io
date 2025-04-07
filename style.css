@@ -39,7 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .logo-header {
@@ -79,6 +79,7 @@ body {
   text-align: center;
   padding: 10px;
   color: var(--primary);
+  animation: none;
 }
 
 .controls {
@@ -165,7 +166,7 @@ body {
   transform: translateY(-20px);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .settings-menu.active {
@@ -440,5 +441,19 @@ body {
 
   .footer-nav a .text {
     font-size: 11px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
