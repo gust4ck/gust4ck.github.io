@@ -1,0 +1,41 @@
+Implementar uma "reflexao" por aparecer tudo que ela já conseguiu alcançar, como "porra, consegui ficar sete horas seguidas estudando todos os sabádos":
+
+--------------------------------------------------------------------------------
+Fazer com que tenha como salvar o quanto de tempo que a pessoa ficou com o time ligado, exemplo se ficou com o time por 1 hora, e ela clica para salvar, logo aparece uma telinha aparecendo para que ela coloque um título, uma descrição, e aparece a data e a hora que a pessoa salvou.
+
+Se a pessoa salvar como exemplo:
+
+Nome: Estudo todos os sabádos
+Descrição: Compromisso Estudar pelo menos 2h (nao sei oq escrever)
+
+Logo, terá sempre um menuzinho no canto superior direito (redondinho igual ao icone de configurações) que ao clicar, se não tiver nada salvo só aparece que nenhum registro foi salvo ou algo do tipo, um textozinho legal para significar que ela ainda não salvou nada.
+
+Logo, se a pessoa salvar, aparecerá tipo um retangulo e dentro assim:
+
+09/04/2025 - 20:31
+--------------------------------------------------
+Nome: Estudo
+Descrição: Compromisso Estudar pelo menos 2h (nao sei oq escrever)
+-------------------------------------------------
+
+E absolutamente, e com certeza esses dados que ela salvar tem que ir para algum lugar, e como ainda não aprendi (ainda, com certeza...) a utilizar bancos de dados, irei utilizar para armazenar em localstorage, cookies ou sei lá.
+
+E sempre, a pessoa conseguirá editar o nome ou descrição, porque as vezes, lá na frente ela pode se arrepender ou não gostar do título ou desc.
+--------------------------------------------------------------------------------
+
+Implementar salvamento de contas:
+--------------------------------------------------------------------------------
+Utiliza-se email, conta do google, apple etc para registrar-se ou fazer login.
+Claro, com toda segurança bem específica.
+
+Após fazer isso, abrirá portas para fazer melhores coisas como adicionar outros tipo de monetização como exemplo uma função para conseguir abaixar uma planilha de estastísticas do mês do que ela fez ou não, e com o tempo fazer o site ter mais funcionalidades como um to-do list e fazer alguma forma boa de monetizar além de anuncios, vendendo alguma ferramenta do site ou aplicação do site.
+
+E também, se a pessoa formatar o pc ou trocar de navegador, sei lá, qualquer coisa ali que mexa nos cookies ou no localStorage do pc da pessoa ou celular, ela vai perder todas suas "conquistas (anotações)" fazendo com que fique "triste" ou com "raiva". Mas com o salvamento de contas, cada pessoa terá sua conta, q com tudo salvo, predefinição de tema, absolutamente tudo. E os cookies ou localStorage serão salvos caso estejam sem usar contas ou usando, mas todas as predefinições dos cookies da pessoa irá ir para o seu registro (email ou o tipo de acesso), então o banco de dados pegará os cookies e colocará como valor para o usuário.
+--------------------------------------------------------------------------------
+
+Aplicativos mobile e desktop:
+--------------------------------------------------------------------------------
+Com toda certeza, se tudo estiver indo certo, irei fazer um aplicativo para desktop, android e apple (oque dará uma dor de cabeça por requerer um MacOs, planos para poder desenvolver aplicativos e por eu não ter experiência, mas vai dar tudo certo!).
+
+Mas só será feito se o site já estiver dando resultados.
+--------------------------------------------------------------------------------
